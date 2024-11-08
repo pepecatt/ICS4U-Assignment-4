@@ -2,13 +2,13 @@ import './Polynomial.css';
 import { useState } from 'react';
 
 function Polynomial() {
-    const [strCo, setCo] = useState( );
-    const [strEx, setEx] = useState( );
-    const [x] = useState( );
-    const [func, setFunction] = useState( );
-    const [answer, setAnswer] = useState( );
+    const [strCo, setCo] = useState('');
+    const [strEx, setEx] = useState('');
+    const [x, setX] = useState('');
+    const [func, setFunction] = useState('');
+    const [answer, setAnswer] = useState('');
 
-    function polynomial() {
+    function polynomial(e) {
         e.preventDefault();
         const coefficients = strCo.split(" ");
         const exponents = strEx.split(" ");
@@ -43,7 +43,7 @@ function Polynomial() {
     
             answer2 += ((x ** ex) * co);
         }
-        setFunction("a");
+        setFunction(answer1);
         setAnswer(answer2.toString());
     }
 
@@ -58,13 +58,14 @@ function Polynomial() {
                 <input type="text" id="exponents" value={strEx} onChange={(event) => {setEx(event.target.value) }} required/>
                 
                 <label>x Value:</label>
-                <input type="number" id="x" value={x} required/>
+                <input type="number" id="x" value={x} onChange={(e) => setX(Number(e.target.value))} required/>
                 
                 <button type="submit" id="calculatePoly">Calculate</button>
                 
-                <label type='text' id = "function" value={func} readOnly >Function: </label>
+                <label>Function: </label>
+                <input type='text' value={func} readOnly />
                 <label>Answer: </label>
-                <input type="text" id="polyResult" value={answer} readOnly />
+                <input type="text" value={answer} readOnly />
             </div>
         </form>
     )

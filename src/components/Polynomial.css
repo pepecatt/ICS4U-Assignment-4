@@ -24,7 +24,7 @@ h1 {
 }
 
 .formula {
-    height: 460px; 
+    height: 515px; 
     width: 600px;
     padding: 20px;
     background: white;
@@ -59,6 +59,8 @@ button {
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 button:hover {
