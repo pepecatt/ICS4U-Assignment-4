@@ -52,15 +52,15 @@ function Polynomial() {
             <div class="formula">
                 <h1>Polynomial Function</h1>
                 <label>Coefficients:</label>
-                <input type="text" id="coefficients" value={strCo} onChange={(event) => {setCo(event.target.value) }} required />
+                <input type="text" value={strCo} onChange={(event) => {setCo(event.target.value) }} required />
                 
                 <label>Exponents:</label>
-                <input type="text" id="exponents" value={strEx} onChange={(event) => {setEx(event.target.value) }} required/>
+                <input type="text" value={strEx} onChange={(event) => {setEx(event.target.value) }} required/>
                 
                 <label>x Value:</label>
-                <input type="number" id="x" value={x} onChange={(e) => setX(Number(e.target.value))} required/>
+                <input type="number" value={x} onChange={(e) => setX(Number(e.target.value))} required/>
                 
-                <button type="submit" id="calculatePoly">Calculate</button>
+                <button type="submit" >Calculate</button>
                 
                 <label>Function: </label>
                 <input type='text' value={func} readOnly />
