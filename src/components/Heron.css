@@ -17,12 +17,6 @@ h1 {
     text-align: center;
 }
 
-.container {
-    display: grid; 
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 20px;
-}
-
 .formula {
     height: 515px; 
     width: 600px;

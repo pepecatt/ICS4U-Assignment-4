@@ -2,11 +2,12 @@ import Polynomial from './components/Polynomial'
 import Heron from './components/Heron'
 
 function App() {
-  // container formula??
   return (
     <>
-      <Polynomial />
-      <Heron />
+      <div className='container'>
+        <Polynomial />
+        <Heron />
+      </div>
     </>
     
   )
