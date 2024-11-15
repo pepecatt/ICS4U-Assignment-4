@@ -30,15 +30,15 @@ function Polynomial() {
                 if (co > 0) answer1 += " + ";
                 else if (co < 0) answer1 += " - ";
             }
-            
-            if (co !== 1 || co !== -1) {
-                if (co < 0) answer1 += Math.abs(co);
-                else answer1 += co;
-            }
-    
-            if (ex > 0) {
-                answer1 += "x";
-                if (ex > 1) answer1 += "^" + ex;
+            if (co !== 0) {
+                if (co !== 1 && co !== -1) {
+                    answer1 += Math.abs(co);
+                }
+        
+                if (ex > 0) {
+                    answer1 += "x";
+                    if (ex > 1) answer1 += "^" + ex;
+                }
             }
     
             answer2 += ((x ** ex) * co);

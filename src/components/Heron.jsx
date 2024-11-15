@@ -6,10 +6,12 @@ function Heron() {
     const [b, setB] = useState('');
     const [c, setC] = useState('');
     const [answer, setAnswer] = useState('');
+
     function heron(e) {
         e.preventDefault();
         const s = (a + b + c) / 2; 
-        setAnswer(Math.sqrt(s * (s - a) * (s - b) * (s - c)));
+        const area = Math.sqrt(s * (s - a) * (s - b) * (s - c)); 
+        setAnswer(area.toFixed(2));
     }
 
     return (
@@ -17,13 +19,13 @@ function Heron() {
             <div class="formula">
                 <h1>Heron's Formula</h1>
                 <label>Side A:</label>
-                <input type="number" value={a} onChange={(event) => {setA(event.target.value)} } required/>
+                <input type="number" value={a} onChange={(event) => {setA(event.target.value)} } required />
                 
                 <label>Side B:</label>
-                <input type="number" value={b} onChange={(event) => {setB(event.target.value)} } required/>
+                <input type="number" value={b} onChange={(event) => {setB(event.target.value)} } required />
                 
                 <label>Side C:</label>
-                <input type="number" value={c} onChange={(event) => {setC(event.target.value)} } required/>
+                <input type="number" value={c} onChange={(event) => {setC(event.target.value)} } required />
                 
                 <button type="submit">Calculate</button>
                 
