@@ -4,7 +4,7 @@ import { useState } from 'react';
 function Polynomial() {
     const [strCo, setCo] = useState('');
     const [strEx, setEx] = useState('');
-    const [x, setX] = useState('');
+    const [x, setX] = useState(0);
     const [func, setFunction] = useState('');
     const [answer, setAnswer] = useState('');
 
@@ -15,8 +15,8 @@ function Polynomial() {
         const arrayco = [];
         const arrayex = [];
 
-        let answer1 = "";
-        let answer2 = 0;
+        let polynomialString = "";
+        let answer = 0;
     
         for (let i=0; i<coefficients.length; i++) {
             arrayco[i] = Number(coefficients[i]);
@@ -27,30 +27,31 @@ function Polynomial() {
             var co = arrayco[i];
             var ex = arrayex[i];
             if (i !== 0) {
-                if (co > 0) answer1 += " + ";
-                else if (co < 0) answer1 += " - ";
+                if (co > 0) polynomialString += " + ";
+                else if (co < 0) polynomialString += " - ";
             }
             if (co !== 0) {
                 if (co !== 1 && co !== -1) {
-                    answer1 += Math.abs(co);
+                    polynomialString += Math.abs(co);
                 }
         
                 if (ex > 0) {
-                    answer1 += "x";
-                    if (ex > 1) answer1 += "^" + ex;
+                    polynomialString += "x";
+                    if (ex > 1) polynomialString += "^" + ex;
                 }
             }
     
-            answer2 += ((x ** ex) * co);
+            answer += ((x ** ex) * co);
         }
-        setFunction(answer1);
-        setAnswer(answer2.toString());
+        setFunction(polynomialString);
+        setAnswer(answer.toString());
     }
 
     return (
         <form onSubmit={(e) => polynomial(e)}>
-            <div class="formula">
+            <div className="formula">
                 <h1>Polynomial Function</h1>
+
                 <label>Coefficients:</label>
                 <input type="text" value={strCo} onChange={(event) => {setCo(event.target.value) }} required />
                 
@@ -58,12 +59,13 @@ function Polynomial() {
                 <input type="text" value={strEx} onChange={(event) => {setEx(event.target.value) }} required/>
                 
                 <label>x Value:</label>
-                <input type="number" value={x} onChange={(e) => setX(Number(e.target.value))} required/>
+                <input type="number" value={x} onChange={(event) => {setX(event.target.value) }} required/>
                 
                 <button type="submit" >Calculate</button>
                 
                 <label>Function: </label>
                 <input type='text' value={func} readOnly />
+                
                 <label>Answer: </label>
                 <input type="text" value={answer} readOnly />
             </div>

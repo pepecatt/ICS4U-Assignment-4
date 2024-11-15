@@ -26,21 +26,22 @@ function Newton() {
             g = newGuess;
             console.log(newGuess);
         } while (!rootGuess);
-        
+
         setAnswer(newGuess);
     }
 
     return (
         <form onSubmit={(e) => newtonsMethod(e)}>
-            <div class="formula">
+            <div className="formula">
                 <h1>Newton's Method</h1>
+                
                 <label>Root guess:</label>
-                <input type="number" value={g} onChange={(event) => {setGuess(event.target.value)}} required />
-                
+                <input type="number" value={g} onChange={(event) => { setGuess(event.target.value) }} required />
+
                 <button type="submit">Calculate</button>
-                
+
                 <label>Root approximation: </label>
-                <input type="text" value={answer} onChange={(event) => {setAnswer(event.target.value)}} required disabled />
+                <input type="text" value={answer} onChange={(event) => { setAnswer(event.target.value) }} required disabled />
             </div>
         </form>
     )
