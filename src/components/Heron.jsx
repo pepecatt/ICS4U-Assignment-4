@@ -12,7 +12,6 @@ function Heron() {
         const s = (parseFloat(a) + parseFloat(b) + parseFloat(c)) / 2;
         const area = Math.sqrt(s * (s - a) * (s - b) * (s - c)); 
         setAnswer(area);
-        console.log(area);
     }
 
     return (
