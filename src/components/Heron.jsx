@@ -9,14 +9,10 @@ function Heron() {
 
     function heron(e) {
         e.preventDefault();
-        if (a <= 0 || b <= 0 || c <= 0 || a + b <= c || a + c <= b || b + c <= a) {
-            setAnswer("Invalid input(s).");
-            return;
-        }
-        
-        const s = (a + b + c) / 2; 
+        const s = (parseFloat(a) + parseFloat(b) + parseFloat(c)) / 2;
         const area = Math.sqrt(s * (s - a) * (s - b) * (s - c)); 
-        setAnswer(area.toFixed(2));
+        setAnswer(area);
+        console.log(area);
     }
 
     return (
